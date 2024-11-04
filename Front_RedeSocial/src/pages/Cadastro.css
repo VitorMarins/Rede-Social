@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+  }
+
+#text-conta {
+  font-size: var(--wf-tfs, 2rem);
+}
+
+#form-cadastro {
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    width: 30rem;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+#form-cadastro input {
+  font-size: 14px;
+  border-radius: 40px;
+  margin: 0 auto;
+}
+
+#form-cadastro input[type="text"],
+#form-cadastro input[type="password"],
+#form-cadastro input[type="email"] {
+  width: 50%;
+  padding: 15px;
+}
+
+#form-cadastro input[type="submit"] {
+  background-color: #72ceff;
+  padding: 10px;
+  width: 50%;
+  font-size: 16px;
+}
+
+#form-checkbox {
+  margin-bottom: 30px;
+}
+
+#form-checkbox input {
+  margin-right: 5px;
+}
