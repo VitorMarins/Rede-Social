@@ -1,6 +1,5 @@
 const express = require('express');
 const { registrar, login } = require('../controllers/auth.controller');
-const authMiddleware = require('../middleware/auth.middleware');
 const router = express.Router();
 
 /**
@@ -44,7 +43,7 @@ const router = express.Router();
  *       500:
  *         description: Erro interno do servidor
  */
-router.post('/registrar', authMiddleware, registrar);
+router.post('/registrar', registrar);
 
 /**
  * @swagger

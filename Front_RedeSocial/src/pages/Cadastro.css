@@ -9,6 +9,16 @@ body {
   background-color: #fafafa;
 }
 
+#logo-container {
+  margin: 2% auto 0;
+  text-align: center;
+}
+
+#logo_cad {
+  width: 15%;
+  height: 15%;
+}
+
 #form-cad-container {
   text-align: center;
   background-color: #fff;
@@ -17,17 +27,6 @@ body {
   border-radius: 10px;
   padding: 20px;
   width: 40%;
-}
-
-#form-cad-container img {
-  width: 30%;
-  height: 30%;
-}
-
-#line-cad {
-  border-top: 1px solid #dbdbdb;
-  width: 80%;
-  margin: 25px auto 35px;
 }
 
 #form-cad-container label {

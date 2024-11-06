@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import './cadastro.css';
 import Myfooter from '../components/footer.jsx';
+import cadastroApi from '../services/cadastro_api.jsx';
 import { useNavigate } from 'react-router-dom';
-import {logo_G} from '../assets/img.jsx';
+import {logo} from '../assets/img.jsx';
 
 function Cadastro() {
   const [username, setUsername] = useState('');
@@ -44,17 +45,17 @@ function Cadastro() {
     e.preventDefault();
     if (validateForm()) {
       console.log('Formulário enviado:', { username, email, password });
-      // Aqui você pode enviar os dados para o backend
+      cadastroApi(username, email, password)
     }
   };
 
   return (
     <>
+    <div id='logo-container'>
+      <img src={logo} id='logo_cad'/>
+    </div>
       <form onSubmit={handleSubmit} id='form-cad-container'>
-        <img src={logo_G} id='logo_G'/>
-        <h2>Criar Conta</h2>
-        <div className="line_cad"></div>
-        <div>
+        <h2>Criar uma nova conta</h2>
           <label>Nome de Usuário</label>
           <input
             type="text"
@@ -62,9 +63,6 @@ function Cadastro() {
             onChange={(e) => setUsername(e.target.value)}
           />
           {errors.username && <p id='error'>{errors.username}</p>}
-        </div>
-        
-        <div>
           <label>Email</label>
           <input
             type="email"
@@ -72,9 +70,6 @@ function Cadastro() {
             onChange={(e) => setEmail(e.target.value)}
           />
           {errors.email && <p id='error'>{errors.email}</p>}
-        </div>
-
-        <div>
           <label>Senha</label>
           <input
             type="password"
@@ -82,9 +77,6 @@ function Cadastro() {
             onChange={(e) => setPassword(e.target.value)}
           />
           {errors.password && <p id='error'>{errors.password}</p>}
-        </div>
-
-        <div>
           <label>Confirme a Senha</label>
           <input
             type="password"
@@ -94,8 +86,6 @@ function Cadastro() {
           {errors.confirmPassword && (
             <p id='error'>{errors.confirmPassword}</p>
           )}
-        </div>
-
         <button type="submit">Criar Conta</button>
         </form>
         <div id="login-container">
