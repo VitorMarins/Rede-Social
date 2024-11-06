@@ -44,8 +44,8 @@ function Cadastro() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log('Formulário enviado:', { username, email, password });
-      cadastroApi(username, email, password)
+      cadastroApi(username, email, password);
+      navigate('/');
     }
   };
 

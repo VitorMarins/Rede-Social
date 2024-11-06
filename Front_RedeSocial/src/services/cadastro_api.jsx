@@ -5,8 +5,8 @@ const apiClient = axios.create({
     timeout: 5000,
 });
 
-async function CadastroApi(username, password, email) {
-    if (!username || !password || !email) {
+async function CadastroApi(username, email, password ) {
+    if (!username || !email || !password) {
         throw new Error('Todos os campos são obrigatórios.');
     }
     const cadastroData = {
@@ -15,7 +15,6 @@ async function CadastroApi(username, password, email) {
         senha: password,
         tipo: 'normal'
     };
-
     try {
         const response = await apiClient.post('/registrar', cadastroData);
         return response.data;
