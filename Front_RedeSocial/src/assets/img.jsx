@@ -1,7 +1,8 @@
 // importando imagens 
 
-// logo
+// logos
 import logo from "./logo_fluxo.png";
+import logo_G from "./logo_fluxo_G.png";
 
 // exportando imagens para serem usadas em outros componentes
 import logoGoogle from "./logo_google.svg";
@@ -21,5 +22,6 @@ export {
     banner2,
     astore,
     gplay,
+    logo_G,
     // outras imagens...
  };

@@ -1,48 +1,93 @@
+/* Estilo geral */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Helvetica;
-  }
-
-#text-conta {
-  font-size: var(--wf-tfs, 2rem);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+body {
+  background-color: #fafafa;
 }
 
-#form-cadastro {
-    text-align: center;
-    background-color: #fff;
-    border: 1px solid #dbdbdb;
-    width: 30rem;
-    margin: 5% auto;
-    padding: 20px;
-    border-radius: 30px;
+#form-cad-container {
+  text-align: center;
+  background-color: #fff;
+  margin: 2% auto 20px;
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+  padding: 20px;
+  width: 40%;
 }
 
-#form-cadastro input {
+#form-cad-container img {
+  width: 30%;
+  height: 30%;
+}
+
+#line-cad {
+  border-top: 1px solid #dbdbdb;
+  width: 80%;
+  margin: 25px auto 35px;
+}
+
+#form-cad-container label {
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+}
+
+#form-cad-container input {
   font-size: 14px;
-  border-radius: 40px;
-  margin: 0 auto;
-}
-
-#form-cadastro input[type="text"],
-#form-cadastro input[type="password"],
-#form-cadastro input[type="email"] {
-  width: 50%;
-  padding: 15px;
-}
-
-#form-cadastro input[type="submit"] {
-  background-color: #72ceff;
   padding: 10px;
-  width: 50%;
+  background-color: #fafafa;
+  border: 1px solid #dbdbdb;
+  border-radius: 40px;
+  width: 100%;
+}
+
+button[type="submit"] {
+  width: 40%;
+  margin: 20px auto 0;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
   font-size: 16px;
+  transition: 0.1s;
 }
 
-#form-checkbox {
-  margin-bottom: 30px;
+button[type="submit"]:hover {
+  background-color: #439dfd;
 }
 
-#form-checkbox input {
-  margin-right: 5px;
+#error {
+  color: #ff0000;
+}
+
+/* LOGIN */
+#login-container {
+  text-align: center;
+  background-color: #fff;
+  margin: 0 auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+  padding: 20px;
+  width: 40%;
+}
+
+#login-container p {
+  font-size: 14px;
+  color: #262626;
+}
+
+#login-container a {
+  color: #4a95f6;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#login-container a:hover {
+  cursor: pointer;
 }

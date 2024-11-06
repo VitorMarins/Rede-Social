@@ -1,70 +1,109 @@
- import { useState } from 'react';
- import './Cadastro.css';
- import Myfooter from '../components/footer.jsx';
-
+import { useState } from 'react';
+import './cadastro.css';
+import Myfooter from '../components/footer.jsx';
+import { useNavigate } from 'react-router-dom';
+import {logo_G} from '../assets/img.jsx';
 
 function Cadastro() {
-    const [nome, setNome] = useState('');
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
-    const [confirmarSenha, setConfirmarSenha] = useState('');
-    return (
-        <>
-            <form id='form-cadastro'>
-                <span id='text-conta'>Criar Conta</span>
-                <div id=''>
-                    <input
-                        type="text"
-                        id="nome_Cadastro"
-                        placeholder='Digite seu Nome:'
-                        value={nome}
-                        onChange={(e) => setNome(e.target.value)}
-                        required
-                        minLength={4}
-                        autoComplete="off"
-                    />
-                    <input
-                        type="email"
-                        id="email_Cadastro"
-                        placeholder='Digite seu Email:'
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                        autoComplete="off"
-                    />
-                    <input
-                        type="password"
-                        id="senha_Cadastro"
-                        placeholder='Digite sua Senha:'
-                        value={senha}
-                        onChange={(e) => setSenha(e.target.value)}
-                        required
-                        minLength={6}
-                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-                        autoComplete="off"
-                    />
-                    <input
-                        type="password"
-                        id="confirmarSenha_Cadastro"
-                        placeholder='Confirme sua Senha:'
-                        value={confirmarSenha}
-                        onChange={(e) => setConfirmarSenha(e.target.value)}
-                        required
-                        minLength={6}
-                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-                        autoComplete="off"
-                    />
-                    <label id='form-checkbox'>
-                        <input type="checkbox" name="termos" required />
-                        Eu concordo com os Termos do Usuário.
-                    </label>
-                    <input type="submit" value="Cadastrar" />
-                </div>
-            </form>
-            <Myfooter />
-        </>
-    );
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!username) {
+      newErrors.username = 'Nome de usuário é obrigatório';
+    }
+
+    if (!email) {
+      newErrors.email = 'Email é obrigatório';
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = 'Formato de email inválido';
+    }
+
+    if (!password) {
+      newErrors.password = 'Senha é obrigatória';
+    } else if (password.length < 6) {
+      newErrors.password = 'Senha deve ter pelo menos 6 caracteres';
+    }
+
+    if (password !== confirmPassword) {
+      newErrors.confirmPassword = 'As senhas não coincidem';
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      console.log('Formulário enviado:', { username, email, password });
+      // Aqui você pode enviar os dados para o backend
+    }
+  };
+
+  return (
+    <>
+      <form onSubmit={handleSubmit} id='form-cad-container'>
+        <img src={logo_G} id='logo_G'/>
+        <h2>Criar Conta</h2>
+        <div className="line_cad"></div>
+        <div>
+          <label>Nome de Usuário</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          {errors.username && <p id='error'>{errors.username}</p>}
+        </div>
+        
+        <div>
+          <label>Email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          {errors.email && <p id='error'>{errors.email}</p>}
+        </div>
+
+        <div>
+          <label>Senha</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {errors.password && <p id='error'>{errors.password}</p>}
+        </div>
+
+        <div>
+          <label>Confirme a Senha</label>
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          {errors.confirmPassword && (
+            <p id='error'>{errors.confirmPassword}</p>
+          )}
+        </div>
+
+        <button type="submit">Criar Conta</button>
+        </form>
+        <div id="login-container">
+            <p><a onClick={() => navigate('/')}>Tem uma conta?</a></p>
+        </div>
+        <Myfooter />
+    </>
+  );
 }
 
 export default Cadastro;

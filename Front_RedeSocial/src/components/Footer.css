@@ -1,7 +1,7 @@
   /* FOOTER */
   footer {
     text-align: left;
-    width: 1000px;
+    /* width: 1000px; */
     margin: 50px auto;
     display: flex;
     flex-direction: column;
