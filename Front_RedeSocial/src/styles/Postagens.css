@@ -1,0 +1,18 @@
+textarea {
+    resize: none;
+}
+
+  .post-textarea label {
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+  .post-textarea textarea {
+    border: 1px solid #888;
+    border-radius: 6px;
+    color: #333;
+    display: block;
+    padding: 12px;
+    width: 327px;
+    height: 71px;
+  }
+ 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './cadastro.css';
+import '../styles/cadastro.css';
 import Myfooter from '../components/footer.jsx';
 import cadastroApi from '../services/cadastro_api.jsx';
 import { useNavigate } from 'react-router-dom';

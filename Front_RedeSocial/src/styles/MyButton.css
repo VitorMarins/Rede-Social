@@ -1,0 +1,6 @@
+.MyButton {
+    border: 1px solid #000000;
+    border-radius:25px;
+    padding: 1.5rem 1rem;
+    cursor:pointer;
+}

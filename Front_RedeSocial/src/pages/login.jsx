@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
-import './Login.css';
+import '../styles/Login.css';
 import loginApi from '../services/login_api.jsx';
 import Myfooter from '../components/footer.jsx';
-import {logo, logoGoogle, banner1, astore, gplay, } from '../assets/img.jsx';
+import { logo, logoGoogle, banner1, astore, gplay } from '../assets/img.jsx';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
-
+  
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -34,13 +34,13 @@ function Login() {
       <div id="main-container">
         {/* Banner Container */}
         <div id="banner-container">
-          <img src={banner1} alt="Crie uma conta no Instagram" />
+          <img src={banner1} alt="Crie uma conta no Fluxo" />
         </div>
 
         {/* Login e Registro */}
         <div id="form-container">
           <div id="form-box">
-            <img id="logo-fluxo" src={logo} alt="Instagram" />
+            <img id="logo-fluxo" src={logo} alt="Fluxo" />
 
             <form id="login-form" onSubmit={handleLogin}>
               <input

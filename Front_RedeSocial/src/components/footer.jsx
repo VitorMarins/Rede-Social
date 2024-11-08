@@ -1,7 +1,7 @@
-import './Footer.css';
+import '../styles/Footer.css';
 
 function Myfooter() {
-    return(
+    return (
         <footer>
         <nav>
           <ul id="footer-links">
